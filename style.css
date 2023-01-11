@@ -1,0 +1,448 @@
+@charset "utf-8";
+
+/* common */
+
+body {
+  margin: 0;
+}
+
+main {
+  background: #F0F0F0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  opacity: .7;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  padding: 0 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.sec-tittle {
+  font-size: 36px;
+  letter-spacing: 10px;
+  font-weight: normal;
+}
+
+.sub-tittle {
+  font-size: 14px;
+  margin-bottom: 35px;
+}
+
+.border-line {
+  width: 40px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 60px;
+}
+
+/* header */
+
+header {
+  position: relative;
+  background: #F0F0F0;
+}
+
+header .container {
+  height: 80px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+  gap: 40px;
+  font-size: 14px;
+}
+
+
+.contact {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: black;
+  color: white;
+  font-size: 12px;
+  width: 180px;
+  line-height: 80px;
+  text-align: center;
+}
+
+/* mainvisual */
+
+.mainvisual img {
+  width: 100%;
+  height: calc(100vh - 80px);
+  /*
+メインビジュアルを画面の高さに合わせる
+headerの高さが80pxあるので、100vhから80px分だけマイナスする
+*/
+  object-fit: cover;
+  margin-bottom: 100px;
+}
+
+/* news */
+
+.news .flex {
+  display: flex;
+  font-size: 14px;
+  margin-bottom: 100px;
+}
+
+.news .item {
+  width: calc(100% / 3);
+  padding: 10px 0;
+}
+
+.news .item + .item{
+  border-left: 1px solid #000;
+  padding-left: 20px;
+}
+
+
+.news .item .logo {
+  font-size: 12px;
+  color: white;
+  background: #000;
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+/* about */
+
+.about {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.about .pic {
+  width: 55%;
+}
+
+.about .pic img {
+  width: 100%;
+  height :400px;
+  object-fit: cover;
+}
+
+.about .text {
+  width: 38%;
+  margin-top: 200px;
+}
+
+.about .text-box {
+  line-height: 2;
+  margin-bottom: 100px;
+  font-size: 14px;
+}
+
+/* business */
+
+.business .flex {
+  display: flex;
+  padding: 0 100px 100px 100px;
+  justify-content: space-between;
+}
+
+.business h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.business h3::before {
+  content: "− ";
+  font-weight: normal;
+}
+
+.business img {
+  width: 100%;
+}
+
+.business img + h3 {
+  margin-top: 40px;
+}
+
+.business .item-1 {
+  padding-top: 100px;
+  width: 45%;
+}
+
+.business .item-2 {
+  width: 45%;
+}
+
+/* company */
+/*
+テキストと画像はpositionを使って配置
+子要素の「position: absolute;」で高さがなくなるため、
+「height: 750px;」を指定して高さを確保
+*/
+.company {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 750px;
+  /* 親要素から見ると、子要素は実体がないという扱いになり、親要素のバックグラウンドが表示されない、などの不都合が生じます。(今回.textのbgcが横に広がっちゃった)
+  position: absolute; は、物体が置かれているのではなく、「シールを上から貼り付けた」と、イメージしてください。
+この、absoluteシールは、好きなところへ貼り付ける事はできますが、ただのシールなので実体を持っていません。なので、親要素からは「そこには何もない」という見方をされてしまいます。
+解決方法：
+positionを使うときは、relativeの親要素で、
+幅、高さの設定をしてあげてください。
+そうすることにより、幅、高さの設定そのものが
+シールを貼り付ける台座となり安全にabsoluteでシールを貼り付ける事ができるようになります。
+
+親要素	relative	置く場所を決める役目	幅、高さを設定（台座）
+子要素	absolute	実際に置く役目	シールを貼り付ける
+
+   */
+}
+
+.company .text {
+  width: 55%;
+  background: white;
+  padding: 100px 4%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.company dl {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.company dt {
+  width: 20%;
+  line-height: 2;
+}
+
+.company dd {
+  width: 80%;
+  margin: 0;
+  line-height: 2;
+}
+
+.company .pic {
+  width: 53%;
+  position: absolute;
+  right: 0;
+  top: 115px;
+}
+
+.company .pic img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* footer */
+
+footer .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+}
+
+footer ul {
+  font-size: 14px;
+  margin: 0;
+}
+
+footer small {
+  font-size: 10px;
+  padding-bottom: 20px;
+}
+
+
+
+@media (max-width: 900px) {
+
+  /* header */
+  header .contact {
+    display: none;
+  }
+
+  header .container {
+    height: 80px;
+
+    display: block;
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+  }
+
+  header img {
+    width:80px;
+    height: 20px;
+  }
+
+  header ul {
+    margin-top: 0;
+  }
+
+  /* news */
+
+  .news .flex {
+    /* flex-direction: column; */
+    display: block;
+
+    margin-bottom: 100px;
+  }
+  
+  .news .item + .item{
+    border-left: none;
+    padding-left: 0;
+    padding-top: 30px;
+  }
+  
+  /* about */
+
+  .about {
+    display: block;
+    /* flex-direction: column; */
+  }
+  
+  .about .pic {
+    width: 100%;
+  }
+  
+  .about .pic img {
+    height :300px;
+    object-fit: cover;
+  }
+  
+  .about .text {
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
+  
+  /* business */
+
+  .business .flex {
+    /* flex-direction: column; */
+    display: block;
+
+    padding: 0 0 80px 0;
+  }
+  
+  .business img {
+    width: 100%;
+  }
+  
+  .business .item-1 {
+    padding-top: 0;
+    width: 100%;
+  }
+  
+  .business .item-2 {
+    width: 100%;
+  }
+
+  /* company */
+
+  .company {
+    position: unset;
+/* position: static; */
+
+    display: block;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .company .text {
+    width: 100%;
+    background: white;
+    padding: 30px 20px;
+    box-sizing: border-box;
+
+    position: unset;
+    /* position: static; */
+  }
+  
+  .company dl {
+    /* flex-direction: column; */
+    display: block;
+    font-size: 14px;
+  }
+  
+  .company dt {
+    width: 100%;
+  }
+  
+  .company dd {
+    width: 100%;
+    margin-left: 15px;
+  }
+
+  .company dd + dt {
+    margin-top: 10px;
+  }
+  
+  .company .pic {
+    width: 100%;
+    padding-top: 20px;
+    position: unset;
+     /* position: static; */
+  }
+  
+  .company .pic img {
+    height: 400px;
+    object-fit: cover;
+    vertical-align: bottom;
+  }
+
+  /* footer */
+
+  footer .flex {
+    /* flex-direction: column; */
+    display: block;
+    padding: 40px 0;
+  }
+
+  footer img {
+    width:80px;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+
+  footer ul {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  footer small {
+    font-size: 10px;
+    padding-bottom: 20px;
+  }
+}
